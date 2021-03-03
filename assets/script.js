@@ -42,6 +42,7 @@ var myQuestions = [
 
 
 function jsQuiz() {
+  startTimer();
   
 
   }
@@ -54,16 +55,16 @@ function startTimer() {
       // As long as the `timeLeft` is greater than 1
       if (timeLeft > 1) {
         // Set the `textContent` of `timerEl` to show the remaining seconds
-        timerEl.textContent = timeLeft + ' seconds remaining';
+        $timerElement.textContent = timeLeft;
         // Decrement `timeLeft` by 1
         timeLeft--;
       } else if (timeLeft === 1) {
         // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-        timerEl.textContent = timeLeft + ' second remaining';
+        $timerElement.textContent = timeLeft;
         timeLeft--;
       } else {
         // Once `timeLeft` gets to 0, set `timerEl` to an empty string
-        timerElement.textContent = '';
+        $timerElement.textContent = '';
         // Use `clearInterval()` to stop the timer
         clearInterval(timeInterval);
         
