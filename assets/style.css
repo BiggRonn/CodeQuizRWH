@@ -90,10 +90,24 @@ header {
 }
 
 .testBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   height: 600px;
 
 
 }
 
+#timer{
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  margin: 50px;
+
+  font-size: 100px;
+
+}
 
 
