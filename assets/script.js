@@ -43,35 +43,43 @@ var myQuestions = [
 
 function jsQuiz() {
   startTimer();
-  
+  giveQuestions();
 
-  }
+
+}
+
+function giveQuestions(){
+  var count = 0;
+
+  $quizWindow.textContent = myQuestions[count].question + "/n 468";
+
+
+
+}
 
 function startTimer() {
-    timeLeft = 10;
+  timeLeft = 10;
 
-    // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
-    var timeInterval = setInterval(function () {
-      // As long as the `timeLeft` is greater than 1
-      if (timeLeft > 1) {
-        // Set the `textContent` of `timerEl` to show the remaining seconds
-        $timerElement.textContent = timeLeft;
-        // Decrement `timeLeft` by 1
-        timeLeft--;
-      } else if (timeLeft === 1) {
-        // When `timeLeft` is equal to 1, rename to 'second' instead of 'seconds'
-        $timerElement.textContent = timeLeft;
-        timeLeft--;
-      } else {
-        // Once `timeLeft` gets to 0, set `timerEl` to an empty string
-        $timerElement.textContent = '';
-        // Use `clearInterval()` to stop the timer
-        clearInterval(timeInterval);
-        
-        
-      }
-    }, 1000);
-  }
+  $startButton.disabled = true;
+
+  // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
+  var timeInterval = setInterval(function () {
+    // As long as the `timeLeft` is greater than 1
+    if (timeLeft > 1) {
+      // Set the `textContent` of `timerEl` to show the remaining seconds
+      $timerElement.textContent = timeLeft;
+      // Decrement `timeLeft` by 1
+      timeLeft--;
+    } else {
+      // Once `timeLeft` gets to 0, set `timerEl` to an empty string
+      $timerElement.textContent = '';
+      // Use `clearInterval()` to stop the timer
+      clearInterval(timeInterval);
+
+
+    }
+  }, 1000);
+}
 
 $startButton.addEventListener("click", jsQuiz);
 
