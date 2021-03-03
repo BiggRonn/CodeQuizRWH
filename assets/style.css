@@ -56,8 +56,14 @@ header {
 }
 
 .answerButtons{
+  padding: 5px 25px 5px 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 60px;
-  background-color: blue;
+  background-color: rgb(110, 110, 255);
+  color: white;
+ 
   border: 1px solid black;
 }
 

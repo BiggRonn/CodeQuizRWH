@@ -40,6 +40,16 @@ var myQuestions = [
 
     },
     correctAnswer: "b"
+  },
+  {
+    question: "Which was released first, JavaScript or CSS?",
+    answers: {
+      a: "JavaScript",
+      b: "CSS",
+      c: "Released simultaneously",
+
+    },
+    correctAnswer: "a"
   }
 
 ]
@@ -55,8 +65,10 @@ function jsQuiz() {
 function giveQuestions(){
   var count = 0;
 
-  $questionWindow.textContent = myQuestions[count].question + "/n 468";
-
+  $questionWindow.textContent = myQuestions[count].question;
+  $answerA.textContent = myQuestions[count].answers.a;
+  $answerB.textContent = myQuestions[count].answers.b;
+  $answerC.textContent = myQuestions[count].answers.c;
 
 
 }
