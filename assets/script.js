@@ -1,5 +1,9 @@
 var $startButton = document.querySelector("#startbutton");
-var $quizWindow = document.querySelector("#window");
+var $questionWindow = document.querySelector("#questionwindow");
+var $answerA = document.querySelector("#answerA");
+var $answerB = document.querySelector("#answerB");
+var $answerC = document.querySelector("#answerC");
+
 var $timerElement = document.querySelector("#timer");
 var $highScore = document.querySelector("#highscore");
 var $scoreBoard = document.querySelector("#scoreboard");
@@ -51,7 +55,7 @@ function jsQuiz() {
 function giveQuestions(){
   var count = 0;
 
-  $quizWindow.textContent = myQuestions[count].question + "/n 468";
+  $questionWindow.textContent = myQuestions[count].question + "/n 468";
 
 
 

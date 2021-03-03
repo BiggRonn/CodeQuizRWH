@@ -52,6 +52,17 @@ header {
 
 .card {
   min-height: 800px;
+  
+}
+
+.answerButtons{
+  height: 60px;
+  background-color: blue;
+  border: 1px solid black;
+}
+
+#answerC{
+  border-radius: 0px 0px 40px 40px;
 }
 
 .card-footer {
@@ -93,6 +104,9 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  border: 1px solid black;
+  border-radius: 40px 40px 0px 0px;
 
   height: 600px;
 
