@@ -10,6 +10,10 @@ var $scoreBoard = document.querySelector("#scoreboard");
 
 var timeLeft;
 
+var userScore;
+
+var questionCount;//variable for storing which question the user is on and cycling through array of ?s
+
 
 //this is an array of "question objects". Properties: question, answers, correct answer
 var myQuestions = [
@@ -57,21 +61,32 @@ var myQuestions = [
 
 function jsQuiz() {
   startTimer();
-  giveQuestions();
+  giveQuestions(1);
 
+  $answerA.addEventListener("click", checkAnswer("a"));
+  $answerB.addEventListener("click", checkAnswer("b"));
+  $answerC.addEventListener("click", checkAnswer("c"));
 
 }
 
-function giveQuestions(){
-  var count = 0;
+
+function checkAnswer(answer){
+  console.log(answer);
+
+}
+
+//count parameter takes a number and acceses that index in the myQuestions array
+function giveQuestions(count){
+  
 
   $questionWindow.textContent = myQuestions[count].question;
   $answerA.textContent = myQuestions[count].answers.a;
   $answerB.textContent = myQuestions[count].answers.b;
   $answerC.textContent = myQuestions[count].answers.c;
 
-
+  
 }
+
 
 function startTimer() {
   timeLeft = 10;
@@ -97,7 +112,9 @@ function startTimer() {
   }, 1000);
 }
 
-$startButton.addEventListener("click", jsQuiz);
+var startTest = $startButton.addEventListener("click", jsQuiz);
+
+console.log(startTest);
 
 /*
 
