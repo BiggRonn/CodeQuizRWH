@@ -27,30 +27,40 @@ var myQuestions = [
     correctAnswer: "c"
   },
   {
-    question: "JavaScript is a ____-side programming language.",
+    question: "Who won the World Series for Major League Baseball in 2001?",
     answers: {
-      a: "Client",
-      b: "Server",
-      c: "Both"
+      a: "New York Yankees",
+      b: "Los Angeles Dodgers",
+      c: "Arizona Diamondbacks"
     },
     correctAnswer: "c"
   },
   {
-    question: "What is the HTML tag under which one can write the JavaScript code?",
+    question: "What college did World Series co-MVP Curt Shilling pitch at?",
     answers: {
-      a: "<style>",
-      b: "<script>",
-      c: "<javascript>",
+      a: "Arizona State University",
+      b: "Yavapai Community College",
+      c: "University of Arizona",
 
     },
     correctAnswer: "b"
   },
   {
-    question: "Which was released first, JavaScript or CSS?",
+    question: "How many NBA Championships have the Phoenix Suns won?",
     answers: {
-      a: "JavaScript",
-      b: "CSS",
-      c: "Released simultaneously",
+      a: "0",
+      b: "3",
+      c: "7",
+
+    },
+    correctAnswer: "a"
+  },
+  {
+    question: "Which pitcher hit a flying bird with a fastball during a MLB game?",
+    answers: {
+      a: "Randy Johnson",
+      b: "Roger Clemens",
+      c: "Zach Greinke",
 
     },
     correctAnswer: "a"
@@ -67,6 +77,9 @@ function jsQuiz() {
   $answerB.addEventListener("click", checkAnswer);
   $answerC.addEventListener("click", checkAnswer);
 
+    if (timeLeft < 1){
+      gameOver();
+    }
  
 }
 
@@ -75,16 +88,31 @@ function checkAnswer(){
  
 
 if (myQuestions[questionCount].correctAnswer === this.id){
-  userScore += 1000;
+  userScore += (1000 * timeLeft);
  
 
 } else {
-  timeLeft -= 5;
+  timeLeft -= 2;
 
 }
 
 questionCount++;
+
+if (questionCount < myQuestions.length); 
 giveQuestions();
+
+
+}
+
+function gameOver(){
+  $questionWindow.textContent = "Enter initials to save SCORE";
+  
+  $answerA.textContent = "";
+  $answerB.textContent = "";
+  $answerC.textContent = "";
+
+  console.log("GAMEOVER!!!");
+
 
 
 }
@@ -110,7 +138,7 @@ function startTimer() {
   // Use the `setInterval()` method to call a function to be executed every 1000 milliseconds
   var timeInterval = setInterval(function () {
     // As long as the `timeLeft` is greater than 1
-    if (timeLeft > 1) {
+    if (timeLeft > 0) {
       // Set the `textContent` of `timerEl` to show the remaining seconds
       $timerElement.textContent = timeLeft;
       // Decrement `timeLeft` by 1
@@ -118,6 +146,7 @@ function startTimer() {
     } else {
       // Once `timeLeft` gets to 0, set `timerEl` to an empty string
       $timerElement.textContent = '';
+      gameOver();
       // Use `clearInterval()` to stop the timer
       clearInterval(timeInterval);
 
