@@ -1,8 +1,8 @@
 var $startButton = document.querySelector("#startbutton");
 var $questionWindow = document.querySelector("#questionwindow");
-var $answerA = document.querySelector("#answerA");
-var $answerB = document.querySelector("#answerB");
-var $answerC = document.querySelector("#answerC");
+var $answerA = document.querySelector("#a");
+var $answerB = document.querySelector("#b");
+var $answerC = document.querySelector("#c");
 
 var $timerElement = document.querySelector("#timer");
 var $highScore = document.querySelector("#highscore");
@@ -12,7 +12,7 @@ var timeLeft;
 
 var userScore;
 
-var questionCount;//variable for storing which question the user is on and cycling through array of ?s
+var questionCount = 0;//variable for storing which question the user is on and cycling through array of ?s
 
 
 //this is an array of "question objects". Properties: question, answers, correct answer
@@ -61,28 +61,42 @@ var myQuestions = [
 
 function jsQuiz() {
   startTimer();
-  giveQuestions(1);
+  giveQuestions();
 
-  $answerA.addEventListener("click", checkAnswer("a"));
-  $answerB.addEventListener("click", checkAnswer("b"));
-  $answerC.addEventListener("click", checkAnswer("c"));
+  $answerA.addEventListener("click", checkAnswer);
+  $answerB.addEventListener("click", checkAnswer);
+  $answerC.addEventListener("click", checkAnswer);
 
+ 
 }
 
 
-function checkAnswer(answer){
-  console.log(answer);
+function checkAnswer(){
+ 
+
+if (myQuestions[questionCount].correctAnswer === this.id){
+  userScore += 1000;
+ 
+
+} else {
+  timeLeft -= 5;
+
+}
+
+questionCount++;
+giveQuestions();
+
 
 }
 
 //count parameter takes a number and acceses that index in the myQuestions array
-function giveQuestions(count){
+function giveQuestions(){
   
 
-  $questionWindow.textContent = myQuestions[count].question;
-  $answerA.textContent = myQuestions[count].answers.a;
-  $answerB.textContent = myQuestions[count].answers.b;
-  $answerC.textContent = myQuestions[count].answers.c;
+  $questionWindow.textContent = myQuestions[questionCount].question;
+  $answerA.textContent = myQuestions[questionCount].answers.a;
+  $answerB.textContent = myQuestions[questionCount].answers.b;
+  $answerC.textContent = myQuestions[questionCount].answers.c;
 
   
 }

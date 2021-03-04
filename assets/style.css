@@ -30,6 +30,16 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+button{
+  height: 60px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  background-size: cover;
+}
+
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
@@ -65,9 +75,10 @@ header {
   color: white;
  
   border: 1px solid black;
+  border-radius: 0px;
 }
 
-#answerC{
+.bottomAnswer{
   border-radius: 0px 0px 40px 40px;
 }
 
