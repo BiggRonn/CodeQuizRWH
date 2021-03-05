@@ -164,7 +164,11 @@ if (timeLeft < 1){
 
 console.log(startTest);
 
+
+
 /*
+
+localStorage.setItem("userName", "userScore");
 
 LOGIC
 click the start button
