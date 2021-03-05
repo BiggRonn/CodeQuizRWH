@@ -10,7 +10,7 @@ var $scoreBoard = document.querySelector("#scoreboard");
 
 var timeLeft;
 
-var userScore;
+var userScore = 0;
 
 var questionCount = 0;//variable for storing which question the user is on and cycling through array of ?s
 
@@ -77,9 +77,7 @@ function jsQuiz() {
   $answerB.addEventListener("click", checkAnswer);
   $answerC.addEventListener("click", checkAnswer);
 
-    if (timeLeft < 1){
-      gameOver();
-    }
+    
  
 }
 
@@ -105,13 +103,17 @@ giveQuestions();
 }
 
 function gameOver(){
-  $questionWindow.textContent = "Enter initials to save SCORE";
+  $questionWindow.textContent = userScore +" POINTS!";
+  
+    
   
   $answerA.textContent = "";
   $answerB.textContent = "";
   $answerC.textContent = "";
 
   console.log("GAMEOVER!!!");
+
+  
 
 
 
@@ -156,6 +158,9 @@ function startTimer() {
 }
 
 var startTest = $startButton.addEventListener("click", jsQuiz);
+if (timeLeft < 1){
+  gameOver();
+}
 
 console.log(startTest);
 
